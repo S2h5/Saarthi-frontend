@@ -1,0 +1,102 @@
+<html>
+<head>
+<title>
+Employee Button Page
+</title>
+<link rel="stylesheet" type="text/css" href="styling.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+      $(document).ready(function(){
+         $("table").hide();
+
+         $(".submitform").click(function(){
+            $("table").show();
+         });
+      });
+
+   </script>
+   <script>
+      function validateDate() {
+    var userdate = new Date(document.getElementById("doj").value).toJSON().slice(0,10);
+    var today = new Date().toJSON().slice(0,10);
+    if(userdate < today){
+      alert('Please enter a valid date');
+    }
+}
+
+</script>
+
+
+
+</head>
+<button onclick="formdisplay()" id="buttonc" >New Employee</button>
+<div id="formdiv" style="display:none" >
+<form id="NewEmp" >
+   <div class="form-group">
+    <label>Name</label><br>
+    <input type="text" id="name" autocomplete="off">
+    </div><br>
+
+
+    <div class="form-group">
+    <label>Employee ID</label><br>
+    <input type="text" id="empid" autocomplete="off">
+    </div><br>
+
+
+    <div class="form-group">
+    <label>Department</label><br>
+    <select id="dropdown"  required>
+        <option value="management">Management</option>
+        <option value="production">Production</option>
+        <option value="hrm">Human Resource Management</option>
+        <option value="aaf">Accounting and Finance</option>
+        <option value="it">IT</option>
+      </select>
+      </div><br>
+
+
+      <div class="form-group">
+      <label>Email ID</label><br>
+      <input type="email" id="mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" autocomplete="off">
+      </div><br>
+
+
+      
+      <div class="form-group">
+      <label>Date of Joining</label><br>
+      <input type="date" id="doj" onchange="validateDate()"><br>
+      </div><br>
+
+
+      <div class="form-group">
+      <button id="submit" class="submitform">Submit</button>
+      </div><br>
+
+
+      <div class="form-group">
+         <button  id="reset"  type="reset" value="Reset">
+             Reset
+           </button>
+
+
+   </form> 
+  </div>
+  
+  <table id="display" >
+     <tr>
+        <th>Name</th>
+        <th>EmployeeID</th>
+        <th>Department</th>
+        <th>Email Id</th>
+        <th>DOJ</th>
+        </tr>
+        </table>
+  
+        <script src=script.js></script>
+  
+
+</body>
+</html>
